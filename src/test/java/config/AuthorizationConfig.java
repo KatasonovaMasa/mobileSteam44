@@ -3,7 +3,7 @@ package config;
 import org.aeonbits.owner.Config;
 
 @Config.Sources({
-        "classpath:resources/properties/authorization.properties"
+        "classpath:authorization.properties"
 })
 public interface AuthorizationConfig extends Config {
 

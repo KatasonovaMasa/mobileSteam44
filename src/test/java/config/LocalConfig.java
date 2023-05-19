@@ -2,7 +2,7 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources({"" +
+@Config.Sources({
         "classpath:${env}.properties"
 })
 public interface LocalConfig extends Config {
