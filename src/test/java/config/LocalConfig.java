@@ -17,7 +17,7 @@ public interface LocalConfig extends Config {
     @Key("url")
     String url();
 
-    @DefaultValue("Android")
+    @DefaultValue("android")
     @Key("platformName")
     String platformName();
 }
