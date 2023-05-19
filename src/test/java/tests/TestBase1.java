@@ -20,6 +20,7 @@ public class TestBase1 {
 
     @BeforeAll
     public static void setup() {
+
             Configuration.browser = LocalDriver.class.getName();
             Configuration.browserSize = null;
         }
@@ -35,7 +36,6 @@ public class TestBase1 {
         String sessionId = sessionId().toString();
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
-        step("Close driver", Selenide::closeWebDriver);
         Attach.addVideo(sessionId);
     }
 }
