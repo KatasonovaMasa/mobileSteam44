@@ -2,7 +2,9 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources({"classpath:resources/properties/local.properties"})
+@Config.Sources({"" +
+        "classpath:${env}.properties"
+})
 public interface LocalConfig extends Config {
 
     @Key("deviceName")

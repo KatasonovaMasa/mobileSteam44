@@ -2,6 +2,7 @@ package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
 import config.BrowstackConfig;
+import config.LocalConfig;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
@@ -13,6 +14,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BrowserstackMobileDriver implements WebDriverProvider {
+
+    static LocalConfig configLocal = ConfigFactory.create(LocalConfig.class, System.getProperties());
     static BrowstackConfig config = ConfigFactory.create(BrowstackConfig.class, System.getProperties());
 
     @Nonnull
@@ -26,8 +29,8 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         mutableCapabilities.setCapability("app", config.app());
 
         // Specify device and os_version for testing
-        mutableCapabilities.setCapability("device", config.device());
-        mutableCapabilities.setCapability("os_version", config.osVersion());
+        mutableCapabilities.setCapability("device", configLocal.deviceName());
+        mutableCapabilities.setCapability("os_version", configLocal.osVersion());
 
         // Set other BrowserStack capabilities
         mutableCapabilities.setCapability("project","config.project()");
@@ -40,9 +43,5 @@ public class BrowserstackMobileDriver implements WebDriverProvider {
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
-//            return new URL(config.remoteUrl());
-//        } catch (MalformedURLException e) {
-//            throw new RuntimeException(e);
-//        }
     }
 }
