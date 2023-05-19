@@ -14,12 +14,6 @@ public interface BrowserstackConfig extends Config {
     String passwordKey();
     @Key("remoteUrl")
     String remoteUrl();
-    @Key("project")
-    String project();
-    @Key("build")
-    String build();
-    @Key("name")
-    String name();
     @Key("app")
     String app();
 

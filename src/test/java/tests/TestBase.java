@@ -13,7 +13,8 @@ import org.junit.jupiter.api.BeforeEach;
 import java.util.Objects;
 
 import static com.codeborne.selenide.Selenide.open;
-import static helpers.Attach.sessionId;
+
+import static com.codeborne.selenide.Selenide.sessionId;
 import static io.qameta.allure.Allure.step;
 
 public class TestBase {
@@ -33,13 +34,10 @@ public class TestBase {
 
     @AfterEach
     public void afterEach() {
-        String sessionId = sessionId();
+        String sessionId = sessionId().toString();
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         step("Close driver", Selenide::closeWebDriver);
-        Attach.video(sessionId);
-        if (Objects.equals("deviceHost", "localHost")) {
-            Attach.video(sessionId);
-        }
+        Attach.addVideo(sessionId);
     }
 }

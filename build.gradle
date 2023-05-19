@@ -35,7 +35,15 @@ dependencies {
     testImplementation(
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
-            "io.appium:java-client:$appiumVersion",
+            "io.appium:java-client:8.4.0",
+            "io.rest-assured:rest-assured:$restAssuredVersion",
+            "org.aeonbits.owner:owner:1.0.4",
+            "org.assertj:assertj-core:3.24.2",
+            "org.junit.jupiter:junit-jupiter:5.9.2",
+            "org.slf4j:slf4j-simple:$slf4jVersion",
+            "com.codeborne:selenide:$selenideVersion",
+            "io.qameta.allure:allure-selenide:$allureVersion",
+            "io.appium:java-client:8.4.0",
             "org.junit.jupiter:junit-jupiter:$junitVersion",
             "org.slf4j:slf4j-simple:$slf4jVersion",
             "org.aeonbits.owner:owner:$ownerVersion",
@@ -44,7 +52,7 @@ dependencies {
             "io.qameta.allure:allure-selenide:$allureVersion",
             "io.appium:java-client:8.4.0",
             "io.rest-assured:rest-assured:$restAssuredVersion",
-            "org.assertj:assertj-core:3.24.2",
+            "org.assertj:assertj-core:3.24.2"
 
     )
 }
@@ -54,8 +62,8 @@ tasks.withType(JavaCompile) {
 }
 
 tasks.withType(Test) {
-    systemProperties(System.getProperties())
     useJUnitPlatform()
+    systemProperties(System.getProperties())
 
     testLogging {
         lifecycle {
@@ -65,9 +73,9 @@ tasks.withType(Test) {
     }
 }
 
-task SteamMobile (type: Test) {
+task steamMobile (type: Test) {
     useJUnitPlatform{
-        includeTags "SteamMobile"
+        includeTags "steamMobile"
     }
 }
 
