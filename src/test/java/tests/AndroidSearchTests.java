@@ -15,10 +15,8 @@ import static io.qameta.allure.Allure.step;
 
 public class AndroidSearchTests extends TestBase {
 
-
-
-    @Tag("SteamMobile")
     @Test
+    @Tag("android")
     @Order(1)
     @Feature("Автотесты на мобилке")
     @Story("Авторизация")
@@ -36,8 +34,9 @@ public class AndroidSearchTests extends TestBase {
         });
     }
 
-    @Tag("SteamMobile")
     @Test
+    @Tag("android")
+    @Order(2)
     @Feature("Автотесты на мобилке")
     @Story("Раздел Игр")
     @Owner("Катасонова Мария")
@@ -53,20 +52,4 @@ public class AndroidSearchTests extends TestBase {
             $(AppiumBy.xpath("//android.view.View[@content-desc=\"Cuphead 29 Sep, 2017 419 pуб.\"]")).shouldHave(visible);
         });
     }
-
-//    @Test
-//    @Tag("android")
-//    @DisplayName("Mobile wiki page search test by Android device")
-//    void successfulSearchTest() {
-//        step("Use search line and and type value", () -> {
-//            $(AppiumBy.accessibilityId("Search Wikipedia")).click();
-//            $(AppiumBy.id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Appium");
-//        });
-//        step("Open first found article", () -> {
-//            $$(AppiumBy.id("org.wikipedia.alpha:id/view_card_header_title")).first().click();
-//        });
-//        step("Check that error page haven't opened", () -> {
-//            assertThat($(AppiumBy.id("org.wikipedia.alpha:id/view_wiki_error_text")).isDisplayed()).isFalse();
-//        });
-//    }
 }

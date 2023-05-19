@@ -78,4 +78,8 @@ task steamMobile (type: Test) {
         includeTags "steamMobile"
     }
 }
-
+task android (type: Test) {
+    useJUnitPlatform{
+        includeTags "android"
+    }
+}
