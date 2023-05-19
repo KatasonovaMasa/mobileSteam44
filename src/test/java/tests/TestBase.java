@@ -23,28 +23,28 @@ public class TestBase {
     @BeforeAll
     public static void setup() {
 
-        switch (System.getProperty("deviceHost")) {
-            case "browserstack":
-                Configuration.browser = BrowserstackMobileDriver.class.getName();
-                break;
-            case "emulation":
-                Configuration.browser = LocalMobileDriver.class.getName();
-                break;
-            case "real":
-                Configuration.browser = LocalMobileDriver.class.getName();
-                break;
-            default:
-                throw new RuntimeException();
-        }
-     }
+//        switch (System.getProperty("deviceHost")) {
+//            case "browserstack":
+//                Configuration.browser = BrowserstackMobileDriver.class.getName();
+//                break;
+//            case "emulation":
+//                Configuration.browser = LocalMobileDriver.class.getName();
+//                break;
+//            case "real":
+//                Configuration.browser = LocalMobileDriver.class.getName();
+//                break;
+//            default:
+//                throw new RuntimeException();
+//        }
+//     }
 
-//        if (Objects.equals(deviceHost, "browserstackHost")) {
+
 //            Configuration.browser = BrowserstackMobileDriver.class.getName();
 //            Configuration.browserSize = null;
 //        } else {
-//            Configuration.browser = LocalMobileDriver.class.getName();
-//            Configuration.browserSize = null;
-//        }
+            Configuration.browser = LocalMobileDriver.class.getName();
+            Configuration.browserSize = null;
+        }
 //    }
 
     @BeforeEach

@@ -23,9 +23,10 @@ import static io.appium.java_client.touch.offset.PointOption.point;
 import static io.qameta.allure.Allure.step;
 import static java.time.temporal.ChronoUnit.MILLIS;
 
-@Tag("SteamMobileTests")
+@Tag("SteamMobile")
 public class FindDifferentTicketsTests extends TestBase {
 
+    @Tag("SteamMobile")
     @Test
     @Order(1)
     @Feature("Автотесты на мобилке")
@@ -44,6 +45,7 @@ public class FindDifferentTicketsTests extends TestBase {
         });
     }
 
+    @Tag("SteamMobile")
     @Test
     @Order(2)
     @Feature("Автотесты на мобилке")

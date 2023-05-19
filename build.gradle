@@ -64,9 +64,9 @@ tasks.withType(Test) {
         }
     }
 }
-task TutuTests_tests (type: Test) {
+task steamMobileTests (type: Test) {
     useJUnitPlatform{
-        includeTags "TutuTests"
+        includeTags "SteamMobile"
     }
 }
 
