@@ -1,7 +1,6 @@
 package tests;
 
 import config.AuthorizationConfig;
-import config.LocalConfig;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
@@ -27,7 +26,7 @@ import static io.qameta.allure.Allure.step;
 import static java.time.temporal.ChronoUnit.MILLIS;
 
 @Tag("SteamMobile")
-public class SteamMobileTest extends TestBase1 {
+public class SteamMobileTest extends TestBase {
     static AuthorizationConfig config = ConfigFactory.create(AuthorizationConfig.class, System.getProperties());
 
     @Tag("SteamMobile")
