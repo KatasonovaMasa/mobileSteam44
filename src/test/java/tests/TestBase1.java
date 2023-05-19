@@ -2,7 +2,6 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import drivers.BrowserstackMobileDriver;
 import drivers.LocalMobileDriver;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -17,35 +16,14 @@ import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static helpers.Attach.sessionId;
 import static io.qameta.allure.Allure.step;
 
-public class TestBase {
+public class TestBase1 {
     static String deviceHost = System.getProperty("deviceHost", "browserstack");
 
     @BeforeAll
     public static void setup() {
-
-//        switch (System.getProperty("deviceHost")) {
-//            case "browserstack":
-//                Configuration.browser = BrowserstackMobileDriver.class.getName();
-//                break;
-//            case "emulation":
-//                Configuration.browser = LocalMobileDriver.class.getName();
-//                break;
-//            case "real":
-//                Configuration.browser = LocalMobileDriver.class.getName();
-//                break;
-//            default:
-//                throw new RuntimeException();
-//        }
-//     }
-
-
-//            Configuration.browser = BrowserstackMobileDriver.class.getName();
-//            Configuration.browserSize = null;
-//        } else {
             Configuration.browser = LocalMobileDriver.class.getName();
             Configuration.browserSize = null;
         }
-//    }
 
     @BeforeEach
     public void startDriver() {

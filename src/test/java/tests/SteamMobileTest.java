@@ -24,7 +24,7 @@ import static io.qameta.allure.Allure.step;
 import static java.time.temporal.ChronoUnit.MILLIS;
 
 @Tag("SteamMobile")
-public class FindDifferentTicketsTests extends TestBase {
+public class SteamMobileTest extends TestBase1 {
 
     @Tag("SteamMobile")
     @Test

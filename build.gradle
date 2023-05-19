@@ -64,7 +64,8 @@ tasks.withType(Test) {
         }
     }
 }
-task steamMobileTests (type: Test) {
+
+task SteamMobile (type: Test) {
     useJUnitPlatform{
         includeTags "SteamMobile"
     }
