@@ -40,9 +40,9 @@ public class SteamMobileTest extends TestBase1 {
     void openApp() {
         step("Авторизация", () -> {
             $$(AppiumBy.className("android.widget.EditText")).get(0).click();
-            $$(AppiumBy.className("android.widget.EditText")).get(0).sendKeys(config.login());
+            $$(AppiumBy.className("android.widget.EditText")).get(0).sendKeys("Test_quru");
             $$(AppiumBy.className("android.widget.EditText")).get(1).click();
-            $$(AppiumBy.className("android.widget.EditText")).get(1).sendKeys(config.password());
+            $$(AppiumBy.className("android.widget.EditText")).get(1).sendKeys("Mgbb4gas!)");
             $$(AppiumBy.className("android.view.ViewGroup")).get(4).click();
             sleep(15000);
             $$(AppiumBy.className("android.view.ViewGroup")).get(3).shouldHave(visible);

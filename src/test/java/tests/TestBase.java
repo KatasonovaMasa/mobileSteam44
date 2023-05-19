@@ -2,6 +2,8 @@ package tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import drivers.BrowserstackMobileDriver;
 import drivers.LocalMobileDriver;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -16,19 +18,20 @@ import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static helpers.Attach.sessionId;
 import static io.qameta.allure.Allure.step;
 
-public class TestBase1 {
+public class TestBase {
 
     @BeforeAll
-    public static void setup() {
-            Configuration.browser = LocalMobileDriver.class.getName();
-            Configuration.browserSize = null;
-        }
+    static void beforeAll() {
+        Configuration.browser = BrowserstackMobileDriver.class.getName();
+        Configuration.browserSize = null;
+    }
 
     @BeforeEach
-    public void startDriver() {
-        addListener("AllureSelenide", new AllureSelenide());
+    void addListener() {
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         open();
     }
+
 
     @AfterEach
     public void afterEach() {

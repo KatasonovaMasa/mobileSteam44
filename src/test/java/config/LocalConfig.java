@@ -2,14 +2,14 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources("classpath:resources/properties/local.properties")
+@Config.Sources({"classpath:resources/properties/local.properties"})
 public interface LocalConfig extends Config {
 
     @Key("deviceName")
-    @DefaultValue("Pixel 6")
+    @DefaultValue("Samsung Galaxy S22 Ultra")
     String deviceName();
 
-    @DefaultValue("11.0")
+    @DefaultValue("12.0")
     @Key("osVersion")
     String osVersion();
 
