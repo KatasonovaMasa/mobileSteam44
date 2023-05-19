@@ -18,19 +18,34 @@ import static helpers.Attach.sessionId;
 import static io.qameta.allure.Allure.step;
 
 public class TestBase {
-    static String deviceHost = System.getProperty("devicehost", "browserstackHost");
+    static String deviceHost = System.getProperty("devicehost", "browserstack");
 
     @BeforeAll
     public static void setup() {
 
-        if (Objects.equals(deviceHost, "browserstackHost")) {
-            Configuration.browser = BrowserstackMobileDriver.class.getName();
-            Configuration.browserSize = null;
-        } else {
-            Configuration.browser = LocalMobileDriver.class.getName();
-            Configuration.browserSize = null;
+        switch (System.getProperty("deviceHost")) {
+            case "browserstack":
+                Configuration.browser = BrowserstackMobileDriver.class.getName();
+                break;
+            case "emulation":
+                Configuration.browser = LocalMobileDriver.class.getName();
+                break;
+            case "real":
+                Configuration.browser = LocalMobileDriver.class.getName();
+                break;
+            default:
+                throw new RuntimeException();
         }
-    }
+     }
+
+//        if (Objects.equals(deviceHost, "browserstackHost")) {
+//            Configuration.browser = BrowserstackMobileDriver.class.getName();
+//            Configuration.browserSize = null;
+//        } else {
+//            Configuration.browser = LocalMobileDriver.class.getName();
+//            Configuration.browserSize = null;
+//        }
+//    }
 
     @BeforeEach
     public void startDriver() {
