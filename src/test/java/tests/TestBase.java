@@ -17,13 +17,14 @@ public class TestBase {
 
     @BeforeAll
     public static void setup() {
+        addListener("AllureSelenide", new AllureSelenide());
             Configuration.browser = BrowserstackDriver.class.getName();
             Configuration.browserSize = null;
         }
 
     @BeforeEach
     public void startDriver() {
-        addListener("AllureSelenide", new AllureSelenide());
+//        addListener("AllureSelenide", new AllureSelenide());
         open();
     }
 
