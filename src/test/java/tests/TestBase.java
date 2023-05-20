@@ -14,26 +14,26 @@ import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static io.qameta.allure.Allure.step;
 
 public class TestBase {
-//    static String deviceHost = System.getProperty("deviceHost");
+    static String deviceHost = System.getProperty("deviceHost");
     @BeforeAll
     public static void setup() {
         addListener("AllureSelenide", new AllureSelenide());
-//        switch (deviceHost) {
-//            case "browserstack":
+        switch (deviceHost) {
+            case "browserstack":
                 Configuration.browser = BrowserstackDriver.class.getName();
-//                break;
-//            case "local":
-//                Configuration.browser = LocalDriver.class.getName();
-//                break;
-//            default:
-//                throw new RuntimeException();
-//        }
+                break;
+            case "local":
+                Configuration.browser = LocalDriver.class.getName();
+                break;
+            default:
+                throw new RuntimeException();
+        }
         Configuration.browserSize = null;
     }
 
     @BeforeEach
     public void startDriver() {
-//        addListener("AllureSelenide", new AllureSelenide());
+        addListener("AllureSelenide", new AllureSelenide());
         open();
     }
 
@@ -44,8 +44,8 @@ public class TestBase {
         // Attach.pageSource();
         closeWebDriver();
         Attach.addVideo(sessionId);
-//        if (System.getProperty("local").equals("browserstack")) {
-//            Attach.addVideo(sessionId);
-//        }
+        if (System.getProperty("local").equals("browserstack")) {
+            Attach.addVideo(sessionId);
+        }
     }
 }
