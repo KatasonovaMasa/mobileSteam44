@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
@@ -47,13 +48,13 @@ public class AndroidSearchTests extends TestBase {
             sleep(1000);
             $(AppiumBy.className("android.widget.EditText")).sendKeys("Cuphead" + "\n");
             sleep(1000);
-            $(AppiumBy.className("android.widget.ImageView")).click(); //нажать на вопрос
+            $(AppiumBy.className("android.widget.ImageView")).click();
             sleep(1000);
-            $$(AppiumBy.className("android.view.ViewGroup")).get(2).click(); // нажать назад
-            sleep(1000);
-            $$(AppiumBy.className("android.view.ViewGroup")).get(1).click(); //нажать на поиск
-            sleep(1000);
-            $(AppiumBy.xpath("//android.view.View[@content-desc=\"Cuphead 29 Sep, 2017 419 pуб.\"]")).shouldHave(visible);
+            $$(AppiumBy.className("android.view.ViewGroup")).get(2).click();
+            sleep(3000);
+            $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
+            sleep(3000);
+            $(AppiumBy.xpath("//android.view.View[@content-desc='Cuphead 29 Sep, 2017 419 pуб.']")).shouldHave(visible);
         });
     }
 }
