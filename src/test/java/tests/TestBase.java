@@ -16,12 +16,11 @@ public class TestBase {
     static String deviceHost = System.getProperty("browserstack", "local");;
     @BeforeAll
     public static void setup() {
-
         switch (deviceHost) {
             case "browserstack":
                 Configuration.browser = BrowserstackDriver.class.getName();
                 break;
-            case ("local"):
+            case "local":
                 Configuration.browser = LocalDriver.class.getName();
                 break;
             default:

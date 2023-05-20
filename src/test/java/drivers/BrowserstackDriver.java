@@ -18,9 +18,8 @@ public class BrowserstackDriver implements WebDriverProvider {
     static LocalConfig configLocal = ConfigFactory.create(LocalConfig.class, System.getProperties());
     static BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
 
-    @Nonnull
     @Override
-    public WebDriver createDriver(@Nonnull Capabilities capabilities) {
+    public WebDriver createDriver(Capabilities capabilities) {
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
         mutableCapabilities.merge(capabilities);
 
