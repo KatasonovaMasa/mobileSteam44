@@ -11,8 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 
 import java.util.Objects;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.sessionId;
+import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static io.qameta.allure.Allure.step;
 
@@ -20,7 +19,6 @@ public class TestBase1 {
 
     @BeforeAll
     public static void setup() {
-
             Configuration.browser = LocalDriver.class.getName();
             Configuration.browserSize = null;
         }
@@ -36,6 +34,7 @@ public class TestBase1 {
         String sessionId = sessionId().toString();
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
+        closeWebDriver();
         Attach.addVideo(sessionId);
     }
 }

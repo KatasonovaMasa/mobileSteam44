@@ -57,6 +57,15 @@ dependencies {
     )
 }
 
+dependencies {
+    implementation ('io.qameta.allure:allure-rest-assured:2.21.0',
+            'com.github.javafaker:javafaker:1.0.2',
+            'org.projectlombok:lombok:1.18.22',
+            'com.codeborne:selenide:6.12.3',
+            'org.testng:testng:7.1.0'
+    )
+}
+
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
@@ -78,8 +87,8 @@ task steamMobile (type: Test) {
         includeTags "steamMobile"
     }
 }
-task android (type: Test) {
-    useJUnitPlatform{
+task android(type: Test) {
+    useJUnitPlatform {
         includeTags "android"
     }
 }

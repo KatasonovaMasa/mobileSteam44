@@ -25,9 +25,9 @@ public class AndroidSearchTests extends TestBase {
     void openApp() {
         step("Авторизация", () -> {
             $$(AppiumBy.className("android.widget.EditText")).get(0).click();
-            $$(AppiumBy.className("android.widget.EditText")).get(0).sendKeys("Test_quru");
+            $$(AppiumBy.className("android.widget.EditText")).get(0).sendKeys();
             $$(AppiumBy.className("android.widget.EditText")).get(1).click();
-            $$(AppiumBy.className("android.widget.EditText")).get(1).sendKeys("Mgbb4gas!)");
+            $$(AppiumBy.className("android.widget.EditText")).get(1).sendKeys();
             $$(AppiumBy.className("android.view.ViewGroup")).get(4).click();
             sleep(15000);
             $$(AppiumBy.className("android.view.ViewGroup")).get(3).shouldHave(visible);

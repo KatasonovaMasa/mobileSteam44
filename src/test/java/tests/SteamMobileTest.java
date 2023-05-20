@@ -1,7 +1,6 @@
 package tests;
 
 import config.AuthorizationConfig;
-import config.LocalConfig;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
@@ -26,11 +25,10 @@ import static io.appium.java_client.touch.offset.PointOption.point;
 import static io.qameta.allure.Allure.step;
 import static java.time.temporal.ChronoUnit.MILLIS;
 
-@Tag("SteamMobile")
-public class SteamMobileTest extends TestBase1 {
+public class SteamMobileTest extends TestBase {
     static AuthorizationConfig config = ConfigFactory.create(AuthorizationConfig.class, System.getProperties());
 
-    @Tag("SteamMobile")
+    @Tag("android")
     @Test
     @Order(1)
     @Feature("Автотесты на мобилке")
@@ -40,16 +38,16 @@ public class SteamMobileTest extends TestBase1 {
     void openApp() {
         step("Авторизация", () -> {
             $$(AppiumBy.className("android.widget.EditText")).get(0).click();
-            $$(AppiumBy.className("android.widget.EditText")).get(0).sendKeys("Test_quru");
+            $$(AppiumBy.className("android.widget.EditText")).get(0).sendKeys(config.login());
             $$(AppiumBy.className("android.widget.EditText")).get(1).click();
-            $$(AppiumBy.className("android.widget.EditText")).get(1).sendKeys("Mgbb4gas!)");
+            $$(AppiumBy.className("android.widget.EditText")).get(1).sendKeys(config.password());
             $$(AppiumBy.className("android.view.ViewGroup")).get(4).click();
             sleep(15000);
             $$(AppiumBy.className("android.view.ViewGroup")).get(3).shouldHave(visible);
         });
     }
 
-    @Tag("SteamMobile")
+    @Tag("android")
     @Test
     @Order(2)
     @Feature("Автотесты на мобилке")
@@ -69,6 +67,7 @@ public class SteamMobileTest extends TestBase1 {
     }
 
     @Test
+    @Tag("android")
     @Order(3)
     @Feature("Автотесты на мобилке")
     @Story("Корзина игр")
@@ -90,6 +89,7 @@ public class SteamMobileTest extends TestBase1 {
     }
 
     @Test
+    @Tag("android")
     @Order(4)
     @Feature("Автотесты на мобилке")
     @Story("Корзина игр")
