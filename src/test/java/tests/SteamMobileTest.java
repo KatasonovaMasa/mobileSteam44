@@ -57,12 +57,12 @@ public class SteamMobileTest extends TestBase {
     void searchJobApi() {
         step("Поиск игры", () -> {
             $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
-            $(AppiumBy.className("android.widget.EditText")).sendKeys("Cuphead" + "\n");
-            $(AppiumBy.className("android.widget.ImageView")).click(); //нажать на вопрос
-            $$(AppiumBy.className("android.view.ViewGroup")).get(2).click(); // нажать назад
-            $$(AppiumBy.className("android.view.ViewGroup")).get(1).click(); //нажать на поиск
             sleep(1000);
-            $(AppiumBy.xpath("//android.view.View[@content-desc=\"Cuphead 29 Sep, 2017 419 pуб.\"]")).shouldHave(visible);
+            $(AppiumBy.className("android.widget.EditText")).sendKeys("Cuphead" + "\n");
+            sleep(1000);
+            $(AppiumBy.xpath("//android.view.View[@content-desc=\"blank\"]/android.widget.Image")).click();
+            sleep(1000);
+            $$(AppiumBy.className("android.view.View")).get(1).shouldHave(text("Cuphead - The Delicious Last Course"));
         });
     }
 
