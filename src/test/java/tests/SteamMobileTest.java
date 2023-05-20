@@ -1,5 +1,6 @@
 package tests;
 
+
 import config.AuthorizationConfig;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.PerformsTouchActions;
