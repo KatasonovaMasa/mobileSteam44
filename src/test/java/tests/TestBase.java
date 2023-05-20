@@ -43,8 +43,9 @@ public class TestBase {
         //  Attach.screenshotAs("Last screenshot");
         // Attach.pageSource();
         closeWebDriver();
-        if (System.getProperty("local").equals("browserstack")) {
-            Attach.addVideo(sessionId);
-        }
+        Attach.addVideo(sessionId);
+//        if (System.getProperty("local").equals("browserstack")) {
+//            Attach.addVideo(sessionId);
+//        }
     }
 }
