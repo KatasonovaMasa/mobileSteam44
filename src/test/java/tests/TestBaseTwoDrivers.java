@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static io.qameta.allure.Allure.step;
 
-public class TestBase {
+public class TestBaseTwoDrivers {
     static String deviceHost = System.getProperty("deviceHost");
     @BeforeAll
     public static void setup() {
