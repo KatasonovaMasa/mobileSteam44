@@ -25,7 +25,6 @@ import static io.appium.java_client.touch.offset.PointOption.point;
 import static io.qameta.allure.Allure.step;
 import static java.time.temporal.ChronoUnit.MILLIS;
 
-@Tag("SteamMobile")
 public class SteamMobileTest extends TestBase {
     static AuthorizationConfig config = ConfigFactory.create(AuthorizationConfig.class, System.getProperties());
 
@@ -52,7 +51,7 @@ public class SteamMobileTest extends TestBase {
         });
     }
 
-    @Tag("android")
+
     @Test
     @Order(2)
     @Feature("Автотесты на мобилке")

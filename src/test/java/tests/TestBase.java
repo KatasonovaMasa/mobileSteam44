@@ -13,7 +13,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 
 public class TestBase {
-    static String deviceHost = System.getProperty("browserstack", "local");;
+    static String deviceHost = System.getProperty("deviceHost");
     @BeforeAll
     public static void setup() {
         switch (deviceHost) {
@@ -28,6 +28,7 @@ public class TestBase {
         }
         Configuration.browserSize = null;
     }
+
     @BeforeEach
     public void startDriver() {
         addListener("AllureSelenide", new AllureSelenide());

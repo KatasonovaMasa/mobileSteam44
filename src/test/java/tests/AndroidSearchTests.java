@@ -17,7 +17,6 @@ import static io.qameta.allure.Allure.step;
 public class AndroidSearchTests extends TestBase {
 
     @Test
-    @Tag("android")
     @Order(1)
     @Feature("Автотесты на мобилке")
     @Story("Авторизация")
@@ -36,7 +35,6 @@ public class AndroidSearchTests extends TestBase {
     }
 
     @Test
-    @Tag("android")
     @Order(2)
     @Feature("Автотесты на мобилке")
     @Story("Раздел Игр")
