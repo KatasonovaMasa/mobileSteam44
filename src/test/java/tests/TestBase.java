@@ -14,20 +14,20 @@ import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
 import static io.qameta.allure.Allure.step;
 
 public class TestBase {
-    static String deviceHost = System.getProperty("deviceHost");
+//    static String deviceHost = System.getProperty("deviceHost");
     @BeforeAll
     public static void setup() {
         addListener("AllureSelenide", new AllureSelenide());
-        switch (deviceHost) {
-            case "browserstack":
+//        switch (deviceHost) {
+//            case "browserstack":
                 Configuration.browser = BrowserstackDriver.class.getName();
-                break;
-            case "local":
-                Configuration.browser = LocalDriver.class.getName();
-                break;
-            default:
-                throw new RuntimeException();
-        }
+//                break;
+//            case "local":
+//                Configuration.browser = LocalDriver.class.getName();
+//                break;
+//            default:
+//                throw new RuntimeException();
+//        }
         Configuration.browserSize = null;
     }
 
