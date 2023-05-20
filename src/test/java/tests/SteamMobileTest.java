@@ -29,6 +29,7 @@ public class SteamMobileTest extends TestBase {
     static AuthorizationConfig config = ConfigFactory.create(AuthorizationConfig.class, System.getProperties());
 
     @Test
+    @Tag("steamMobile")
     @Order(1)
     @Feature("Автотесты на мобилке")
     @Story("Авторизация")
@@ -47,6 +48,7 @@ public class SteamMobileTest extends TestBase {
     }
 
     @Test
+    @Tag("steamMobile")
     @Order(2)
     @Feature("Автотесты на мобилке")
     @Story("Раздел Игр")
@@ -65,6 +67,7 @@ public class SteamMobileTest extends TestBase {
     }
 
     @Test
+    @Tag("steamMobile")
     @Order(3)
     @Feature("Автотесты на мобилке")
     @Story("Корзина игр")
@@ -86,6 +89,7 @@ public class SteamMobileTest extends TestBase {
     }
 
     @Test
+    @Tag("steamMobile")
     @Order(4)
     @Feature("Автотесты на мобилке")
     @Story("Корзина игр")
