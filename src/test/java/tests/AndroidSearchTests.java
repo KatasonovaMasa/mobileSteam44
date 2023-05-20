@@ -37,7 +37,7 @@ public class AndroidSearchTests extends TestBase {
     }
 
     @Test
-//    @Tag("android")
+    @Tag("android")
     @Order(2)
     @Feature("Автотесты на мобилке")
     @Story("Раздел Игр")
