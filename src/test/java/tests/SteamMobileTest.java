@@ -29,7 +29,7 @@ import static java.time.temporal.ChronoUnit.MILLIS;
 public class SteamMobileTest extends TestBase {
     static AuthorizationConfig config = ConfigFactory.create(AuthorizationConfig.class, System.getProperties());
 
-    @Tag("SteamMobile")
+    @Tag("android")
     @Test
     @Order(1)
     @Feature("Автотесты на мобилке")
@@ -48,7 +48,7 @@ public class SteamMobileTest extends TestBase {
         });
     }
 
-    @Tag("SteamMobile")
+    @Tag("android")
     @Test
     @Order(2)
     @Feature("Автотесты на мобилке")

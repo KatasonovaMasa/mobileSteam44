@@ -44,9 +44,13 @@ public class AndroidSearchTests extends TestBase {
     void searchJobApi() {
         step("Поиск игры", () -> {
             $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
+            sleep(1000);
             $(AppiumBy.className("android.widget.EditText")).sendKeys("Cuphead" + "\n");
+            sleep(1000);
             $(AppiumBy.className("android.widget.ImageView")).click(); //нажать на вопрос
+            sleep(1000);
             $$(AppiumBy.className("android.view.ViewGroup")).get(2).click(); // нажать назад
+            sleep(1000);
             $$(AppiumBy.className("android.view.ViewGroup")).get(1).click(); //нажать на поиск
             sleep(1000);
             $(AppiumBy.xpath("//android.view.View[@content-desc=\"Cuphead 29 Sep, 2017 419 pуб.\"]")).shouldHave(visible);
