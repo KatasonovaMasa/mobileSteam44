@@ -1,9 +1,11 @@
 package tests;
 
+import config.AuthorizationConfig;
 import io.appium.java_client.AppiumBy;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import io.qameta.allure.Story;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
@@ -14,7 +16,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 public class AndroidSearchTests extends TestBase {
-
+    static AuthorizationConfig config = ConfigFactory.create(AuthorizationConfig.class, System.getProperties());
     @Test
     @Tag("android")
     @Order(1)
@@ -25,9 +27,9 @@ public class AndroidSearchTests extends TestBase {
     void openApp() {
         step("Авторизация", () -> {
             $$(AppiumBy.className("android.widget.EditText")).get(0).click();
-            $$(AppiumBy.className("android.widget.EditText")).get(0).sendKeys();
+            $$(AppiumBy.className("android.widget.EditText")).get(0).sendKeys(config.login());
             $$(AppiumBy.className("android.widget.EditText")).get(1).click();
-            $$(AppiumBy.className("android.widget.EditText")).get(1).sendKeys();
+            $$(AppiumBy.className("android.widget.EditText")).get(1).sendKeys(config.password());
             $$(AppiumBy.className("android.view.ViewGroup")).get(4).click();
             sleep(15000);
             $$(AppiumBy.className("android.view.ViewGroup")).get(3).shouldHave(visible);
