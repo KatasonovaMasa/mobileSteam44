@@ -47,7 +47,8 @@ public class AndroidSearchTests extends TestBase {
         step("Поиск игры", () -> {
             $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
             $(AppiumBy.className("android.widget.EditText")).sendKeys("Cuphead" + "\n");
-            $(AppiumBy.className("android.widget.ImageView")).click(); //нажать на вопрос
+            sleep(1000);
+            $(AppiumBy.className("android.widget.ImageView")).click(); //нажать на вопрос jn c.l
             $$(AppiumBy.className("android.view.ViewGroup")).get(2).click(); // нажать назад
             $$(AppiumBy.className("android.view.ViewGroup")).get(1).click(); //нажать на поиск
             sleep(1000);
