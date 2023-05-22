@@ -16,6 +16,7 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Dimension;
 
 import java.time.Duration;
+import java.util.ArrayList;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -28,7 +29,7 @@ import static java.time.temporal.ChronoUnit.MILLIS;
 @Feature("Автотесты на мобилке")
 @Story("Авторизация")
 @Owner("Катасонова Мария")
-public class RunTwoDriversTest extends TestBaseBrowserstack {
+public class RunTwoDriversTest extends TestBaseLocaleDrivers {
     static AuthorizationConfig config = ConfigFactory.create(AuthorizationConfig.class, System.getProperties());
 
     @Test
@@ -62,8 +63,22 @@ public class RunTwoDriversTest extends TestBaseBrowserstack {
 //    @Owner("Катасонова Мария")
     @DisplayName("Кнопка поиска игр")
     void searchJobApi() {
+        step("Авторизация", () -> {
+            $$(AppiumBy.className("android.widget.EditText")).get(0).click();
+            sleep(1000);
+            $$(AppiumBy.className("android.widget.EditText")).get(0).sendKeys(config.login());
+            sleep(1000);
+            $$(AppiumBy.className("android.widget.EditText")).get(1).click();
+            sleep(1000);
+            $$(AppiumBy.className("android.widget.EditText")).get(1).sendKeys(config.password());
+            sleep(1000);
+            $$(AppiumBy.className("android.view.ViewGroup")).get(4).click();
+            sleep(15000);
+        });
         step("Поиск игры", () -> {
-            sleep(3000);
+            swipeUpQuick(12000);
+            swipeUpQuick(12000);
+            $(AppiumBy.xpath("//android.widget.TextView[@content-desc=\"Steam\"]")).click();
             $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
             sleep(3000);
             $(AppiumBy.className("android.widget.EditText")).sendKeys("Cuphead" + "\n");
@@ -82,8 +97,21 @@ public class RunTwoDriversTest extends TestBaseBrowserstack {
 //    @Owner("Катасонова Мария")
     @DisplayName("Добавление игры в корзину")
     void potentialBuyGames() {
+        step("Авторизация", () -> {
+            $$(AppiumBy.className("android.widget.EditText")).get(0).click();
+            sleep(1000);
+            $$(AppiumBy.className("android.widget.EditText")).get(0).sendKeys(config.login());
+            sleep(1000);
+            $$(AppiumBy.className("android.widget.EditText")).get(1).click();
+            sleep(1000);
+            $$(AppiumBy.className("android.widget.EditText")).get(1).sendKeys(config.password());
+            sleep(1000);
+            $$(AppiumBy.className("android.view.ViewGroup")).get(4).click();
+            sleep(15000);
+        });
         step("Добавление игры в корзину", () -> {
-            sleep(3000);
+            swipeUpQuick(12000);
+            swipeUpQuick(12000);
             $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
             sleep(3000);
             $(AppiumBy.className("android.widget.EditText")).sendKeys("Cuphead" + "\n");
@@ -107,8 +135,21 @@ public class RunTwoDriversTest extends TestBaseBrowserstack {
 //    @Owner("Катасонова Мария")
     @DisplayName("Удалить игру из корзины")
     void deleteGameCart() {
+        step("Авторизация", () -> {
+            $$(AppiumBy.className("android.widget.EditText")).get(0).click();
+            sleep(1000);
+            $$(AppiumBy.className("android.widget.EditText")).get(0).sendKeys(config.login());
+            sleep(1000);
+            $$(AppiumBy.className("android.widget.EditText")).get(1).click();
+            sleep(1000);
+            $$(AppiumBy.className("android.widget.EditText")).get(1).sendKeys(config.password());
+            sleep(1000);
+            $$(AppiumBy.className("android.view.ViewGroup")).get(4).click();
+            sleep(15000);
+        });
         step("Удалить игру из корзины", () -> {
-            sleep(5000);
+            swipeUpQuick(12000);
+            swipeUpQuick(12000);
             $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
             sleep(3000);
             $(AppiumBy.xpath("//android.view.View[@content-desc=\"Remove\"]/android.widget.TextView")).click();
