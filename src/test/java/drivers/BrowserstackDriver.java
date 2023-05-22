@@ -30,10 +30,12 @@ public class BrowserstackDriver implements WebDriverProvider {
         mutableCapabilities.setCapability("app", config.app());
 
         // Specify device and os_version for testing
+        mutableCapabilities.setCapability("noReset", true);
         mutableCapabilities.setCapability("device", configLocal.deviceName());
         mutableCapabilities.setCapability("os_version", configLocal.osVersion());
 
         // Set other BrowserStack capabilities
+        mutableCapabilities.setCapability("noReset", true);
         mutableCapabilities.setCapability("project","config.project()");
         mutableCapabilities.setCapability("build", "config.build()");
         mutableCapabilities.setCapability("name", "config.name()");
