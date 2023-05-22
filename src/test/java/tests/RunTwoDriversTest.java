@@ -29,11 +29,11 @@ import static java.time.temporal.ChronoUnit.MILLIS;
 @Feature("Автотесты на мобилке")
 @Story("Авторизация")
 @Owner("Катасонова Мария")
-public class RunTwoDriversTest extends TestBaseBrowserstack {
+public class RunTwoDriversTest extends TestBaseLocaleDrivers {
     static AuthorizationConfig config = ConfigFactory.create(AuthorizationConfig.class, System.getProperties());
 
     @Test
-    @Tag("steamMobile")
+    @Tag("steamMobile3")
     @Order(1)
 //    @Feature("Автотесты на мобилке")
 //    @Story("Авторизация")
@@ -73,15 +73,10 @@ public class RunTwoDriversTest extends TestBaseBrowserstack {
             $$(AppiumBy.className("android.widget.EditText")).get(1).sendKeys(config.password());
             sleep(1000);
             $$(AppiumBy.className("android.view.ViewGroup")).get(4).click();
-            back();
-            back();
-            swipeUpQuick(12000);
-            swipeUpQuick(12000);
         });
         step("Поиск игры", () -> {
-            sleep(3000);
-            $$(AppiumBy.className("android.widget.TextView")).get(5).click();
-//
+            openApp();
+            $(AppiumBy.className("android.widget.TextView")).click();
 //            $(AppiumBy.xpath("//android.widget.TextView[@content-desc=\"Steam\"]")).click();
             sleep(3000);
             $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
