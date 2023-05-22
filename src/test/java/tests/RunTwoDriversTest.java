@@ -29,7 +29,7 @@ import static java.time.temporal.ChronoUnit.MILLIS;
 @Feature("Автотесты на мобилке")
 @Story("Авторизация")
 @Owner("Катасонова Мария")
-public class RunTwoDriversTest extends TestBaseLocaleDrivers {
+public class RunTwoDriversTest extends TestBaseBrowserstack {
     static AuthorizationConfig config = ConfigFactory.create(AuthorizationConfig.class, System.getProperties());
 
     @Test
