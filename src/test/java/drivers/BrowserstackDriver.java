@@ -3,6 +3,7 @@ package drivers;
 import com.codeborne.selenide.WebDriverProvider;
 import config.BrowserstackConfig;
 import config.LocalConfig;
+import io.appium.java_client.remote.MobileCapabilityType;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
@@ -24,6 +25,7 @@ public class BrowserstackDriver implements WebDriverProvider {
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
         mutableCapabilities.merge(capabilities);
         // Set your access credentials
+        mutableCapabilities.setCapability(MobileCapabilityType.NO_RESET, false);
         mutableCapabilities.setCapability("noReset", true);
         mutableCapabilities.setCapability("browserstack.user", config.username());
         mutableCapabilities.setCapability("browserstack.key", config.passwordKey());

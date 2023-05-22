@@ -33,7 +33,7 @@ public class RunTwoDriversTest extends TestBaseBrowserstack {
     static AuthorizationConfig config = ConfigFactory.create(AuthorizationConfig.class, System.getProperties());
 
     @Test
-    @Tag("steamMobile3")
+    @Tag("steamMobile")
     @Order(1)
 //    @Feature("Автотесты на мобилке")
 //    @Story("Авторизация")
@@ -63,24 +63,9 @@ public class RunTwoDriversTest extends TestBaseBrowserstack {
 //    @Owner("Катасонова Мария")
     @DisplayName("Кнопка поиска игр")
     void searchJobApi() {
-        step("Авторизация", () -> {
-            $$(AppiumBy.className("android.widget.EditText")).get(0).click();
-            sleep(1000);
-            $$(AppiumBy.className("android.widget.EditText")).get(0).sendKeys(config.login());
-            sleep(1000);
-            $$(AppiumBy.className("android.widget.EditText")).get(1).click();
-            sleep(1000);
-            $$(AppiumBy.className("android.widget.EditText")).get(1).sendKeys(config.password());
-            sleep(1000);
-            $$(AppiumBy.className("android.view.ViewGroup")).get(4).click();
-        });
         step("Поиск игры", () -> {
-            openApp();
-            $(AppiumBy.className("android.widget.TextView")).click();
-//            $(AppiumBy.xpath("//android.widget.TextView[@content-desc=\"Steam\"]")).click();
-            sleep(3000);
             $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
-            sleep(3000);
+            sleep(5000);
             $(AppiumBy.className("android.widget.EditText")).sendKeys("Cuphead" + "\n");
             sleep(5000);
             $(AppiumBy.xpath("//android.view.View[@content-desc=\"blank\"]/android.widget.Image")).click();
