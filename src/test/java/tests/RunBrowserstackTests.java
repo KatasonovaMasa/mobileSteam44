@@ -59,7 +59,6 @@ public class RunBrowserstackTests extends TestBaseBrowserstack {
     @DisplayName("Кнопка поиска игр")
     void searchJobApi() {
         step("Поиск игры", () -> {
-            sleep(5000);
             $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
             sleep(5000);
             $(AppiumBy.className("android.widget.EditText")).sendKeys("Cuphead" + "\n");
