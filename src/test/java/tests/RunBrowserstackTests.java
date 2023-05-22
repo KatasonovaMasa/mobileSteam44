@@ -51,7 +51,7 @@ public class RunBrowserstackTests extends TestBaseTwoDrivers {
     }
 
     @Test
-    @Tag("android")
+    @Tag("steamMobile")
     @Order(2)
     @Feature("Автотесты на мобилке")
     @Story("Раздел Игр")
