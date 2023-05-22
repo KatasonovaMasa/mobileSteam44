@@ -76,6 +76,8 @@ public class RunTwoDriversTest extends TestBaseBrowserstack {
             sleep(15000);
         });
         step("Поиск игры", () -> {
+            back();
+            back();
             swipeUpQuick(12000);
             swipeUpQuick(12000);
             $(AppiumBy.xpath("//android.widget.TextView[@content-desc=\"Steam\"]")).click();
@@ -111,6 +113,8 @@ public class RunTwoDriversTest extends TestBaseBrowserstack {
             sleep(15000);
         });
         step("Добавление игры в корзину", () -> {
+            back();
+            back();
             swipeUpQuick(12000);
             swipeUpQuick(12000);
             $(AppiumBy.xpath("//android.widget.TextView[@content-desc=\"Steam\"]")).click();
@@ -151,6 +155,8 @@ public class RunTwoDriversTest extends TestBaseBrowserstack {
             sleep(15000);
         });
         step("Удалить игру из корзины", () -> {
+            back();
+            back();
             swipeUpQuick(12000);
             swipeUpQuick(12000);
             $(AppiumBy.xpath("//android.widget.TextView[@content-desc=\"Steam\"]")).click();
