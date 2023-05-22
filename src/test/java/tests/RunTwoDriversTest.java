@@ -29,7 +29,7 @@ import static java.time.temporal.ChronoUnit.MILLIS;
 @Feature("Автотесты на мобилке")
 @Story("Авторизация")
 @Owner("Катасонова Мария")
-public class RunTwoDriversTest extends TestBaseLocaleDrivers {
+public class RunTwoDriversTest extends TestBaseBrowserstack {
     static AuthorizationConfig config = ConfigFactory.create(AuthorizationConfig.class, System.getProperties());
 
     @Test
@@ -79,6 +79,7 @@ public class RunTwoDriversTest extends TestBaseLocaleDrivers {
             swipeUpQuick(12000);
             swipeUpQuick(12000);
             $(AppiumBy.xpath("//android.widget.TextView[@content-desc=\"Steam\"]")).click();
+            sleep(3000);
             $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
             sleep(3000);
             $(AppiumBy.className("android.widget.EditText")).sendKeys("Cuphead" + "\n");
@@ -112,6 +113,8 @@ public class RunTwoDriversTest extends TestBaseLocaleDrivers {
         step("Добавление игры в корзину", () -> {
             swipeUpQuick(12000);
             swipeUpQuick(12000);
+            $(AppiumBy.xpath("//android.widget.TextView[@content-desc=\"Steam\"]")).click();
+            sleep(3000);
             $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
             sleep(3000);
             $(AppiumBy.className("android.widget.EditText")).sendKeys("Cuphead" + "\n");
@@ -150,6 +153,8 @@ public class RunTwoDriversTest extends TestBaseLocaleDrivers {
         step("Удалить игру из корзины", () -> {
             swipeUpQuick(12000);
             swipeUpQuick(12000);
+            $(AppiumBy.xpath("//android.widget.TextView[@content-desc=\"Steam\"]")).click();
+            sleep(3000);
             $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
             sleep(3000);
             $(AppiumBy.xpath("//android.view.View[@content-desc=\"Remove\"]/android.widget.TextView")).click();
