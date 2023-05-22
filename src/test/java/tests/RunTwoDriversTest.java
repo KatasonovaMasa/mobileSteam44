@@ -4,6 +4,7 @@ import config.AuthorizationConfig;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.WaitOptions;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
@@ -64,6 +65,20 @@ public class RunTwoDriversTest extends TestBaseBrowserstack {
     @DisplayName("Кнопка поиска игр")
     void searchJobApi() {
         step("Поиск игры", () -> {
+            $$(AppiumBy.className("android.widget.EditText")).get(0).click();
+            sleep(1000);
+            $$(AppiumBy.className("android.widget.EditText")).get(0).sendKeys(config.login());
+            sleep(1000);
+            $$(AppiumBy.className("android.widget.EditText")).get(1).click();
+            sleep(1000);
+            $$(AppiumBy.className("android.widget.EditText")).get(1).sendKeys(config.password());
+            sleep(1000);
+            $$(AppiumBy.className("android.view.ViewGroup")).get(4).click();
+            sleep(15000);
+            $$(AppiumBy.className("android.view.ViewGroup")).get(3).shouldHave(visible);
+
+
+
             $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
             sleep(5000);
             $(AppiumBy.className("android.widget.EditText")).sendKeys("Cuphead" + "\n");

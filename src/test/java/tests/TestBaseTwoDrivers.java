@@ -44,7 +44,7 @@ public class TestBaseTwoDrivers {
         // Attach.pageSource();
         closeWebDriver();
         Attach.addVideo(sessionId);
-        if (System.getProperty("local").equals("browserstack")) {
+        if (deviceHost.equals("browserstack")) {
             Attach.addVideo(sessionId);
         }
     }
