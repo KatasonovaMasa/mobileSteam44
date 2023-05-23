@@ -52,8 +52,19 @@ dependencies {
             "io.qameta.allure:allure-selenide:$allureVersion",
             "io.appium:java-client:8.4.0",
             "io.rest-assured:rest-assured:$restAssuredVersion",
-            "org.assertj:assertj-core:3.24.2"
-
+            "org.assertj:assertj-core:3.24.2",
+            'org.jbehave:jbehave-core:5.1.1',
+            'org.springframework:spring-context:2.0.5'
+    )
+}
+dependencies {
+    implementation ('io.qameta.allure:allure-rest-assured:2.21.0',
+            'com.github.javafaker:javafaker:1.0.2',
+            'org.projectlombok:lombok:1.18.22',
+            'com.codeborne:selenide:6.12.3',
+            'org.testng:testng:7.1.0',
+            'org.jbehave:jbehave-core:5.1.1',
+            'org.springframework:spring-context:2.0.5'
     )
 }
 

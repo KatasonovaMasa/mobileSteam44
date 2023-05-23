@@ -47,7 +47,7 @@ public class LocalDriver implements WebDriverProvider {
         return new AndroidDriver(getAppiumServerUrl(), options);
     }
 
-        private String getAppPath() {
+    private String getAppPath() {
         String appUrl = "https://media.steampowered.com/apps/steam-android/steam-3.5.apk";
         String appPath = "apps/steam-3.5.apk";
 
