@@ -44,8 +44,8 @@ public class TestBase {
         // Attach.pageSource();
         closeWebDriver();
         Attach.addVideo(sessionId);
-        if (deviceHost.equals("browserstack")) {
-            Attach.addVideo(sessionId);
-        }
+//        if (deviceHost.equals("browserstack")) {
+//            Attach.addVideo(sessionId);
+//        }
     }
 }
