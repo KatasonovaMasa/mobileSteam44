@@ -3,6 +3,7 @@ package drivers;
 import com.codeborne.selenide.WebDriverProvider;
 import config.BrowserstackConfig;
 import config.LocalConfig;
+import io.appium.java_client.remote.MobileCapabilityType;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
@@ -14,16 +15,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class BrowserstackDriver implements WebDriverProvider {
-
     static LocalConfig configLocal = ConfigFactory.create(LocalConfig.class, System.getProperties());
     static BrowserstackConfig config = ConfigFactory.create(BrowserstackConfig.class, System.getProperties());
 
+    @Nonnull
     @Override
-    public WebDriver createDriver(Capabilities capabilities) {
+    public WebDriver createDriver(@Nonnull Capabilities capabilities) {
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
         mutableCapabilities.merge(capabilities);
-
         // Set your access credentials
+        mutableCapabilities.setCapability(MobileCapabilityType.NO_RESET, true);
         mutableCapabilities.setCapability("browserstack.user", config.username());
         mutableCapabilities.setCapability("browserstack.key", config.passwordKey());
         mutableCapabilities.setCapability("app", config.app());
@@ -44,4 +45,5 @@ public class BrowserstackDriver implements WebDriverProvider {
             throw new RuntimeException(e);
         }
     }
+
 }
