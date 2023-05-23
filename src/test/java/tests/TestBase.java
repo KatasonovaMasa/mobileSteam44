@@ -20,10 +20,10 @@ public class TestBase {
 //        addListener("AllureSelenide", new AllureSelenide());
 //        switch (deviceHost) {
 //            case "browserstack":
-//                Configuration.browser = BrowserstackDriver.class.getName();
+                Configuration.browser = BrowserstackDriver.class.getName();
 //                break;
 //            case "local":
-                Configuration.browser = LocalDriver.class.getName();
+//                Configuration.browser = LocalDriver.class.getName();
 //                break;
 //            default:
 //                throw new RuntimeException();
