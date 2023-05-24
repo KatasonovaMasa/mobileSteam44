@@ -6,6 +6,9 @@ import io.appium.java_client.AppiumBy;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
@@ -22,12 +25,14 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.appium.java_client.touch.offset.PointOption.point;
 import static io.qameta.allure.Allure.step;
 import static java.time.temporal.ChronoUnit.MILLIS;
-
+@Tag("steamMobile")
+@Feature("Aвтотесты для Steam")
+@Story("Автотесты для Mobile")
+@Owner("Катасонова Мария")
 public class SteamMobileTest extends TestBase {
     static AuthorizationConfig config = ConfigFactory.create(AuthorizationConfig.class, System.getProperties());
 
     @Test
-    @Tag("android")
     @Order(1)
     @DisplayName("Авторизация в приложении")
     void openApp() {
@@ -47,7 +52,6 @@ public class SteamMobileTest extends TestBase {
     }
 
     @Test
-    @Tag("android")
     @Order(2)
     @DisplayName("Кнопка поиска игр")
     void searchJobApi() {
@@ -64,7 +68,6 @@ public class SteamMobileTest extends TestBase {
     }
 
     @Test
-    @Tag("steamMobile")
     @Order(3)
     @DisplayName("Добавление игры в корзину")
     void potentialBuyGames() {
@@ -86,7 +89,6 @@ public class SteamMobileTest extends TestBase {
     }
 
     @Test
-    @Tag("steamMobile")
     @Order(4)
     @DisplayName("Удалить игру из корзины")
     void deleteGameCart() {
