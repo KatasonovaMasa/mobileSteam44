@@ -9,6 +9,7 @@ import io.appium.java_client.touch.WaitOptions;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Dimension;
 
@@ -26,6 +27,7 @@ public class SteamMobileTest extends TestBase {
     static AuthorizationConfig config = ConfigFactory.create(AuthorizationConfig.class, System.getProperties());
 
     @Test
+    @Tag("android")
     @Order(1)
     @DisplayName("Авторизация в приложении")
     void openApp() {
@@ -45,6 +47,7 @@ public class SteamMobileTest extends TestBase {
     }
 
     @Test
+    @Tag("android")
     @Order(2)
     @DisplayName("Кнопка поиска игр")
     void searchJobApi() {
@@ -61,6 +64,7 @@ public class SteamMobileTest extends TestBase {
     }
 
     @Test
+    @Tag("steamMobile")
     @Order(3)
     @DisplayName("Добавление игры в корзину")
     void potentialBuyGames() {
@@ -82,6 +86,7 @@ public class SteamMobileTest extends TestBase {
     }
 
     @Test
+    @Tag("steamMobile")
     @Order(4)
     @DisplayName("Удалить игру из корзины")
     void deleteGameCart() {

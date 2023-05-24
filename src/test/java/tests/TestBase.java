@@ -11,7 +11,6 @@ import org.junit.jupiter.api.BeforeEach;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.logevents.SelenideLogger.addListener;
-import static io.qameta.allure.Allure.step;
 
 public class TestBase {
     static String deviceHost = System.getProperty("deviceHost");
@@ -40,8 +39,6 @@ public class TestBase {
     @AfterEach
     public void afterEach() {
         String sessionId = sessionId().toString();
-        //  Attach.screenshotAs("Last screenshot");
-        // Attach.pageSource();
         closeWebDriver();
         Attach.addVideo(sessionId);
         if (deviceHost.equals("browserstack")) {
