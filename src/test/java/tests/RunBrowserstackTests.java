@@ -71,9 +71,6 @@ public class RunBrowserstackTests extends TestBaseBrowserstack {
             @Test
         @Tag("steamMobile")
         @Order(3)
-//    @Feature("Автотесты на мобилке")
-//    @Story("Корзина игр")
-//    @Owner("Катасонова Мария")
         @DisplayName("Добавление игры в корзину")
         void potentialBuyGames () {
             step("Добавление игры в корзину", () -> {
@@ -96,9 +93,6 @@ public class RunBrowserstackTests extends TestBaseBrowserstack {
         @Test
         @Tag("steamMobile")
         @Order(4)
-//    @Feature("Автотесты на мобилке")
-//    @Story("Корзина игр")
-//    @Owner("Катасонова Мария")
         @DisplayName("Удалить игру из корзины")
         void deleteGameCart () {
             step("Удалить игру из корзины", () -> {

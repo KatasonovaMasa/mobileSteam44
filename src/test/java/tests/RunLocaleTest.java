@@ -32,8 +32,11 @@ public class RunLocaleTest extends TestBaseLocaleDrivers {
     static AuthorizationConfig config = ConfigFactory.create(AuthorizationConfig.class, System.getProperties());
 
     @Test
-    @Tag("steamMobile")
+    @Tag("android")
     @Order(1)
+    @Feature("Автотесты на мобилке")
+    @Story("Авторизация")
+    @Owner("Катасонова Мария")
     @DisplayName("Авторизация в приложении")
     void openApp() {
         step("Авторизация", () -> {
@@ -54,23 +57,12 @@ public class RunLocaleTest extends TestBaseLocaleDrivers {
     @Test
     @Tag("steamMobile")
     @Order(2)
+    @Feature("Автотесты на мобилке")
+    @Story("Раздел Игр")
+    @Owner("Катасонова Мария")
     @DisplayName("Кнопка поиска игр")
     void searchJobApi() {
         step("Поиск игры", () -> {
-            $$(AppiumBy.className("android.widget.EditText")).get(0).click();
-            sleep(1000);
-            $$(AppiumBy.className("android.widget.EditText")).get(0).sendKeys(config.login());
-            sleep(1000);
-            $$(AppiumBy.className("android.widget.EditText")).get(1).click();
-            sleep(1000);
-            $$(AppiumBy.className("android.widget.EditText")).get(1).sendKeys(config.password());
-            sleep(1000);
-            $$(AppiumBy.className("android.view.ViewGroup")).get(4).click();
-            sleep(15000);
-            $$(AppiumBy.className("android.view.ViewGroup")).get(3).shouldHave(visible);
-
-
-
             $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
             sleep(5000);
             $(AppiumBy.className("android.widget.EditText")).sendKeys("Cuphead" + "\n");
@@ -80,83 +72,42 @@ public class RunLocaleTest extends TestBaseLocaleDrivers {
             $$(AppiumBy.className("android.view.View")).get(1).shouldHave(text("Cuphead - The Delicious Last Course"));
         });
     }
-//
-//    @Test
-//    @Tag("steamMobile")
-//    @Order(3)
-////    @Feature("Автотесты на мобилке")
-////    @Story("Корзина игр")
-////    @Owner("Катасонова Мария")
-//    @DisplayName("Добавление игры в корзину")
-//    void potentialBuyGames() {
-//        step("Авторизация", () -> {
-//            $$(AppiumBy.className("android.widget.EditText")).get(0).click();
-//            sleep(1000);
-//            $$(AppiumBy.className("android.widget.EditText")).get(0).sendKeys(config.login());
-//            sleep(1000);
-//            $$(AppiumBy.className("android.widget.EditText")).get(1).click();
-//            sleep(1000);
-//            $$(AppiumBy.className("android.widget.EditText")).get(1).sendKeys(config.password());
-//            sleep(1000);
-//            $$(AppiumBy.className("android.view.ViewGroup")).get(4).click();
-//            back();
-//            back();
-//            swipeUpQuick(12000);
-//            swipeUpQuick(12000);
-//        });
-//        step("Добавление игры в корзину", () -> {
-//            sleep(3000);
-//            $(AppiumBy.xpath("//android.widget.TextView[@content-desc=\"Steam\"]")).click();
-//            sleep(3000);
-//            $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
-//            sleep(3000);
-//            $(AppiumBy.className("android.widget.EditText")).sendKeys("Cuphead" + "\n");
-//            sleep(1000);
-//            $(AppiumBy.xpath("//android.view.View[@content-desc=\"blank\"]/android.widget.Image")).click();
-//            sleep(1000);
-//            swipeUpQuick(12000);
-//            swipeUpQuick(12000);
-//            sleep(1000);
-//            $(AppiumBy.xpath("(//android.view.View[@content-desc=\"Add to Cart\"])[1]/android.widget.TextView")).click();
-//            sleep(3000);
-//            $$(AppiumBy.className("android.view.View")).get(2).shouldHave(text("YOUR SHOPPING CART")); // проверка нахождения в корзине
-//        });
-//    }
-//
-//    @Test
-//    @Tag("steamMobile")
-//    @Order(4)
-////    @Feature("Автотесты на мобилке")
-////    @Story("Корзина игр")
-////    @Owner("Катасонова Мария")
-//    @DisplayName("Удалить игру из корзины")
-//    void deleteGameCart() {
-//        step("Авторизация", () -> {
-//            $$(AppiumBy.className("android.widget.EditText")).get(0).click();
-//            sleep(1000);
-//            $$(AppiumBy.className("android.widget.EditText")).get(0).sendKeys(config.login());
-//            sleep(1000);
-//            $$(AppiumBy.className("android.widget.EditText")).get(1).click();
-//            sleep(1000);
-//            $$(AppiumBy.className("android.widget.EditText")).get(1).sendKeys(config.password());
-//            sleep(1000);
-//            $$(AppiumBy.className("android.view.ViewGroup")).get(4).click();
-//            back();
-//            back();
-//            swipeUpQuick(12000);
-//            swipeUpQuick(12000);
-//        });
-//        step("Удалить игру из корзины", () -> {
-//            sleep(3000);
-//            $(AppiumBy.xpath("//android.widget.TextView[@content-desc=\"Steam\"]")).click();
-//            sleep(3000);
-//            $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
-//            sleep(3000);
-//            $(AppiumBy.xpath("//android.view.View[@content-desc=\"Remove\"]/android.widget.TextView")).click();
-//            sleep(5000);
-//            $$(AppiumBy.className("android.view.View")).get(4).shouldHave(text("Your item has been removed!"));
-//        });
-//    }
+    @Test
+    @Tag("steamMobile")
+    @Order(3)
+    @DisplayName("Добавление игры в корзину")
+    void potentialBuyGames () {
+        step("Добавление игры в корзину", () -> {
+            sleep(3000);
+            $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
+            sleep(3000);
+            $(AppiumBy.className("android.widget.EditText")).sendKeys("Cuphead" + "\n");
+            sleep(1000);
+            $(AppiumBy.xpath("//android.view.View[@content-desc=\"blank\"]/android.widget.Image")).click();
+            sleep(1000);
+            swipeUpQuick(12000);
+            swipeUpQuick(12000);
+            sleep(1000);
+            $(AppiumBy.xpath("(//android.view.View[@content-desc=\"Add to Cart\"])[1]/android.widget.TextView")).click();
+            sleep(3000);
+            $$(AppiumBy.className("android.view.View")).get(2).shouldHave(text("YOUR SHOPPING CART")); // проверка нахождения в корзине
+        });
+    }
+
+    @Test
+    @Tag("steamMobile")
+    @Order(4)
+    @DisplayName("Удалить игру из корзины")
+    void deleteGameCart () {
+        step("Удалить игру из корзины", () -> {
+            sleep(5000);
+            $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
+            sleep(3000);
+            $(AppiumBy.xpath("//android.view.View[@content-desc=\"Remove\"]/android.widget.TextView")).click();
+            sleep(5000);
+            $$(AppiumBy.className("android.view.View")).get(4).shouldHave(text("Your item has been removed!"));
+        });
+    }
 
     public void swipeUp(int timeOfSwipeMs) {
         TouchAction action = new TouchAction((PerformsTouchActions) getWebDriver());
