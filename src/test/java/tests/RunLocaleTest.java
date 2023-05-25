@@ -4,7 +4,6 @@ import config.AuthorizationConfig;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
-import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.WaitOptions;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
@@ -17,7 +16,6 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Dimension;
 
 import java.time.Duration;
-import java.util.ArrayList;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -30,15 +28,12 @@ import static java.time.temporal.ChronoUnit.MILLIS;
 @Feature("Автотесты на мобилке")
 @Story("Авторизация")
 @Owner("Катасонова Мария")
-public class RunTwoDriversTest extends TestBaseBrowserstack {
+public class RunLocaleTest extends TestBaseLocaleDrivers {
     static AuthorizationConfig config = ConfigFactory.create(AuthorizationConfig.class, System.getProperties());
 
     @Test
     @Tag("steamMobile")
     @Order(1)
-//    @Feature("Автотесты на мобилке")
-//    @Story("Авторизация")
-//    @Owner("Катасонова Мария")
     @DisplayName("Авторизация в приложении")
     void openApp() {
         step("Авторизация", () -> {
@@ -59,9 +54,6 @@ public class RunTwoDriversTest extends TestBaseBrowserstack {
     @Test
     @Tag("steamMobile")
     @Order(2)
-//    @Feature("Автотесты на мобилке")
-//    @Story("Раздел Игр")
-//    @Owner("Катасонова Мария")
     @DisplayName("Кнопка поиска игр")
     void searchJobApi() {
         step("Поиск игры", () -> {

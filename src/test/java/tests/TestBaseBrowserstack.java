@@ -39,13 +39,8 @@ public class TestBaseBrowserstack {
     @AfterEach
     public void afterEach() {
         String sessionId = sessionId().toString();
-        //  Attach.screenshotAs("Last screenshot");
-        // Attach.pageSource();
         closeWebDriver();
         Attach.addVideo(sessionId);
-//        if (System.getProperty("local").equals("browserstack")) {
-//            Attach.addVideo(sessionId);
-//        }
     }
 
 }
