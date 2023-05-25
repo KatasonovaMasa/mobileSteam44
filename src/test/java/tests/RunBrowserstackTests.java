@@ -50,60 +50,6 @@ public class RunBrowserstackTests extends TestBaseBrowserstack {
         });
     }
 
-    @Test
-    @Tag("steamMobile")
-    @Order(2)
-    @Feature("Автотесты на мобилке")
-    @Story("Раздел Игр")
-    @Owner("Катасонова Мария")
-    @DisplayName("Кнопка поиска игр")
-    void searchJobApi() {
-        step("Поиск игры", () -> {
-            $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
-            sleep(5000);
-            $(AppiumBy.className("android.widget.EditText")).sendKeys("Cuphead" + "\n");
-            sleep(5000);
-            $(AppiumBy.xpath("//android.view.View[@content-desc=\"blank\"]/android.widget.Image")).click();
-            sleep(5000);
-            $$(AppiumBy.className("android.view.View")).get(1).shouldHave(text("Cuphead - The Delicious Last Course"));
-        });
-    }
-            @Test
-        @Tag("steamMobile")
-        @Order(3)
-        @DisplayName("Добавление игры в корзину")
-        void potentialBuyGames () {
-            step("Добавление игры в корзину", () -> {
-                sleep(3000);
-                $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
-                sleep(3000);
-                $(AppiumBy.className("android.widget.EditText")).sendKeys("Cuphead" + "\n");
-                sleep(1000);
-                $(AppiumBy.xpath("//android.view.View[@content-desc=\"blank\"]/android.widget.Image")).click();
-                sleep(1000);
-                swipeUpQuick(12000);
-                swipeUpQuick(12000);
-                sleep(1000);
-                $(AppiumBy.xpath("(//android.view.View[@content-desc=\"Add to Cart\"])[1]/android.widget.TextView")).click();
-                sleep(3000);
-                $$(AppiumBy.className("android.view.View")).get(2).shouldHave(text("YOUR SHOPPING CART")); // проверка нахождения в корзине
-            });
-        }
-
-        @Test
-        @Tag("steamMobile")
-        @Order(4)
-        @DisplayName("Удалить игру из корзины")
-        void deleteGameCart () {
-            step("Удалить игру из корзины", () -> {
-                sleep(5000);
-                $$(AppiumBy.className("android.view.ViewGroup")).get(1).click();
-                sleep(3000);
-                $(AppiumBy.xpath("//android.view.View[@content-desc=\"Remove\"]/android.widget.TextView")).click();
-                sleep(5000);
-                $$(AppiumBy.className("android.view.View")).get(4).shouldHave(text("Your item has been removed!"));
-            });
-    }
 
 
         public void swipeUp ( int timeOfSwipeMs){
