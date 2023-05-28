@@ -35,8 +35,7 @@ public class LocalDriver implements WebDriverProvider {
         UiAutomator2Options options = new UiAutomator2Options();
         options.merge(capabilities);
 
-        options.setNoReset(true)
-                .setAutomationName(ANDROID_UIAUTOMATOR2)
+        options.setAutomationName(ANDROID_UIAUTOMATOR2)
                 .setPlatformName(ANDROID)
                 .setDeviceName(config.deviceName())
                 .setPlatformVersion(config.osVersion())
@@ -47,7 +46,8 @@ public class LocalDriver implements WebDriverProvider {
         return new AndroidDriver(getAppiumServerUrl(), options);
     }
 
-        private String getAppPath() {
+
+    private String getAppPath() {
         String appUrl = "https://media.steampowered.com/apps/steam-android/steam-3.5.apk";
         String appPath = "apps/steam-3.5.apk";
 

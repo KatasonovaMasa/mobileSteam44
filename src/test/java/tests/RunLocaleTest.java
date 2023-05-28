@@ -1,6 +1,7 @@
 package tests;
 
 import config.AuthorizationConfig;
+import drivers.LocalDriver;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.PerformsTouchActions;
 import io.appium.java_client.TouchAction;
@@ -15,15 +16,18 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Dimension;
 
+import javax.swing.*;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverRunner.driver;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.appium.java_client.touch.offset.PointOption.point;
 import static io.qameta.allure.Allure.step;
 import static java.time.temporal.ChronoUnit.MILLIS;
+
 
 @Feature("Автотесты на мобилке")
 @Story("Авторизация")
@@ -41,15 +45,10 @@ public class RunLocaleTest extends TestBaseLocaleDrivers {
     void openApp() {
         step("Авторизация", () -> {
             $$(AppiumBy.className("android.widget.EditText")).get(0).click();
-            sleep(1000);
             $$(AppiumBy.className("android.widget.EditText")).get(0).sendKeys(config.login());
-            sleep(1000);
             $$(AppiumBy.className("android.widget.EditText")).get(1).click();
-            sleep(1000);
             $$(AppiumBy.className("android.widget.EditText")).get(1).sendKeys(config.password());
-            sleep(1000);
             $$(AppiumBy.className("android.view.ViewGroup")).get(4).click();
-            sleep(15000);
             $$(AppiumBy.className("android.view.ViewGroup")).get(3).shouldHave(visible);
         });
     }
